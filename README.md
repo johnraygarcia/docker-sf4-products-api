@@ -13,24 +13,27 @@ Steps to setup project
 . From the host terminal, build the sf4's vendor dependencies with composer
 ```composer install```
 
+. Generate ssh-keys. Remember the ssh-paraphrase you will provide because we will put them in .env file  
 
-. Go to your http server document directory and create a folder   e.g C:/xampp/htdocs/myzone_products
-. Clone the the project using command into the created folder:   
-  git clone https://github.com/johnraygarcia/myzone-products.git 
-. Run composer install to download dependencies
-. Create a database
-. Generate ssh-keys  
-   ```$ mkdir -p config/jwt  
+```$ mkdir -p config/jwt  
    $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096  
    $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout```
-. Edit the .env file to adjust the db user/password/host accordingly
 
-. Run the migration: 
-    - bin/console make:migration  
-    - bin/console doctrine:migration:migrate  
+. Go to the projects root and run the following  
+```docker-compose up```
 
-. Run the fixture to populate the db with sample data by running command:   
-   bin/console doctrine:fixtures:load
+. Run the migration
+```docker-compose exec php php bin/console doctrine:migration:migrate```
+
+. Run the fixtures to populate dummy data  
+```docker-compose exec php php bin/console doctrine:fixtures:load```
+
+. Change the .env.dist to .env adjust adjust the following variables accordingly
+
+```DATABASE_URL=mysql://DBUSER:DBPASS@mysql:3306/DBNAME   
+JWT_PASSPHRASE=YourSSHParaphrase   
+```
+
    
    The default username/password generated for user when running the fixture is:  
    username: admin@gmail.com  
