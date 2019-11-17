@@ -32,7 +32,8 @@ $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
 
 . Change the .env.dist to .env adjust adjust the following variables accordingly
 
-```DATABASE_URL=mysql://DBUSER:DBPASS@mysql:3306/DBNAME   
+```
+DATABASE_URL=mysql://DBUSER:DBPASS@mysql:3306/DBNAME   
 JWT_PASSPHRASE=YourSSHParaphrase   
 ```
 
