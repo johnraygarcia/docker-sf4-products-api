@@ -24,7 +24,7 @@ $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
 . Go to the projects root and run the following  
 ```docker-compose up```
 
-. Run the migration
+. Run the migration  
 ```docker-compose exec php php bin/console doctrine:migration:migrate```
 
 . Run the fixtures to populate dummy data  
@@ -44,7 +44,7 @@ JWT_PASSPHRASE=YourSSHParaphrase
  
    
 
-# API Documentation
+# Swagger API Documentation
 Once the app is running, the api documentation can be accessed via route
-http://127.0.0.1/api/doc
+http://localhost/api/doc
 
