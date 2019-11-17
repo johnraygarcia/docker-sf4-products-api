@@ -10,7 +10,7 @@ Steps to setup project
 . Clone the symfony products-api with this command:  
 ```git clone https://github.com/johnraygarcia/myzone-products.git sf4_app```  
 
-. From the host terminal, build the sf4's vendor dependencies with composer
+. From the host terminal, build the sf4's vendor dependencies with composer  
 ```composer install```
 
 . Generate ssh-keys. Remember the ssh-paraphrase you will provide because we will put them in .env file  
