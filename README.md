@@ -15,9 +15,11 @@ Steps to setup project
 
 . Generate ssh-keys. Remember the ssh-paraphrase you will provide because we will put them in .env file  
 
-```$ mkdir -p config/jwt  
-   $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096  
-   $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout```
+```
+$ mkdir -p config/jwt  
+$ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096  
+$ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
+```
 
 . Go to the projects root and run the following  
 ```docker-compose up```
