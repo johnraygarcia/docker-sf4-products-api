@@ -26,7 +26,7 @@ For Windowns, you might need to prepend the command with winpty:
 
 
 . Go to the projects root and run the following  
-```docker-compose up```
+```docker-compose up -d```
 
 . Run the migration  
 ```docker-compose exec php php bin/console doctrine:migration:migrate```
