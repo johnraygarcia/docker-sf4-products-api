@@ -54,7 +54,7 @@ password: root
 
 
 
-To test the api you will need to login and get your token in this route:  
+To test the api, you need to login and get your token in this route:  
 ```
 POST  
 http://localhost:8080/api/login_check
