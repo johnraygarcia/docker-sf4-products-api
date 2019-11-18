@@ -53,9 +53,19 @@ password: root
 ```docker-compose exec php php bin/console doctrine:fixtures:load```
 
 
-The default username/password generated for user when running the fixture is:  
-username: admin@gmail.com  
-password: myzone
+
+To test the api you will need to login and get your token in this route:  
+```
+POST  
+http://localhost:8080/api/login_check
+```  
+With sample payload:  
+```
+{
+	"username": "admin.garcia@gmail.com",
+	"password": "myzone"
+}```
+
  
    
 # Swagger API Documentation
