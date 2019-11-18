@@ -25,8 +25,19 @@ For Windowns, you might need to prepend the command with winpty:
 
 
 
-. Go to the projects root and run the following  
-```docker-compose up -d```
+5. Go to the projects root and run the following  
+```docker-compose up -d```  
+
+
+6. Open your mysql client and connect to to our mysql server with the following default set-up credentials:  
+host: localhost  
+user: root  
+password: root  
+
+7. Create a database and update the mysql dbname in the sf4_app/.env file:  
+```DATABASE_URL=mysql://root:root@mysql:3306/YOURDBNAME```
+*note: the `mysql` as host in the database url is an alias we provided in our docker-compose file for our mysql service
+
 
 . Run the migration  
 ```docker-compose exec php php bin/console doctrine:migration:migrate```
