@@ -1,4 +1,4 @@
-# Docker sf4-products-api
+# Dockerized sf4-products-api Project
 A Dockerized Rest API built with Symfony Framework
 
 Steps to setup project
