@@ -23,42 +23,41 @@ $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
 For Windowns, you might need to prepend the command with winpty:   
 ``` winpty openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096```
 
+5. update the sf4_app/.env file and change the jwt configuration accordingly:  
+
+```
+JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
+JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
+JWT_PASSPHRASE=YOURSSHPARAPHRASE
+```
 
 
-5. Go to the projects root and run the following  
+6. Go to the projects root and run the following  
 ```docker-compose up -d```  
 
 
-6. Open your mysql client and connect to to our mysql server with the following default set-up credentials:  
+7. Open your mysql client and connect to to our mysql server with the following default set-up credentials:  
 host: localhost  
 user: root  
 password: root  
 
-7. Create a database and update the mysql dbname in the sf4_app/.env file:  
+8. Create a database and update the mysql dbname in the sf4_app/.env file:  
 ```DATABASE_URL=mysql://root:root@mysql:3306/YOURDBNAME```  
 *note: the `mysql` as host in the database url is an alias we provided in our docker-compose file for our mysql service
 
 
-. Run the migration  
+9. Run the migration  
 ```docker-compose exec php php bin/console doctrine:migration:migrate```
 
-. Run the fixtures to populate dummy data  
+10. Run the fixtures to populate dummy data  
 ```docker-compose exec php php bin/console doctrine:fixtures:load```
 
-. Change the .env.dist to .env adjust adjust the following variables accordingly
 
-```
-DATABASE_URL=mysql://DBUSER:DBPASS@mysql:3306/DBNAME   
-JWT_PASSPHRASE=YourSSHParaphrase   
-```
-
-   
-   The default username/password generated for user when running the fixture is:  
-   username: admin@gmail.com  
-   password: myzone
+The default username/password generated for user when running the fixture is:  
+username: admin@gmail.com  
+password: myzone
  
    
-
 # Swagger API Documentation
 Once the app is running, the api documentation can be accessed via route
 http://localhost/api/doc
