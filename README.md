@@ -3,23 +3,27 @@ A Dockerized Rest API built with Symfony Framework
 
 Steps to setup project
 
-. Clone project to the project root   
+1. Clone project to the project root   
 ```git clone https://github.com/johnraygarcia/docker-sf4-products-api.git docker-sf4```  
 
 
-. Clone the symfony products-api with this command:  
+2. Go to the projects root directory and clone the symfony products-api with this command:  
 ```git clone https://github.com/johnraygarcia/myzone-products.git sf4_app```  
 
-. From the host terminal, build the sf4's vendor dependencies with composer  
+3. From the host terminal, build the sf4's vendor dependencies with composer  
 ```composer install```
 
-. Generate ssh-keys. Remember the ssh-paraphrase you will provide because we will put them in .env file  
+4. Inside sf4_app directory generate ssh-keys. Remember the ssh-paraphrase you will provide because we will put them in .env file  
 
 ```
 $ mkdir -p config/jwt  
 $ openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096  
 $ openssl pkey -in config/jwt/private.pem -out config/jwt/public.pem -pubout
-```
+```  
+For Windowns, you might need to prepend the command with winpty:   
+``` winpty openssl genpkey -out config/jwt/private.pem -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096```
+
+
 
 . Go to the projects root and run the following  
 ```docker-compose up```
