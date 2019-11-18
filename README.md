@@ -64,7 +64,8 @@ With sample payload:
 {
 	"username": "admin.garcia@gmail.com",
 	"password": "myzone"
-}```
+}
+```
 
  
    
